@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AIMS Business — Shop</title>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#faf8f3; --surface:#ffffff; --panel:#f4f1ea; --ink:#16171b; --muted:#6b6c72; --line:#e8e4db;
+  --gold:#F2A900; --gold-deep:#b97f00;
+  --sans:"Geist",system-ui,-apple-system,sans-serif; --mono:"Geist Mono",ui-monospace,monospace; --serif:"Playfair Display",Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1160px;margin:0 auto;padding:0 clamp(18px,3vw,32px)}
+a{color:inherit;text-decoration:none}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:10;background:rgba(250,248,243,.9);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .bar{display:flex;align-items:center;gap:22px;height:64px}
+.brand{display:flex;align-items:baseline;gap:9px}
+.brand .logo{font-weight:700;font-size:21px;letter-spacing:.04em}
+.brand .logo b{color:var(--gold-deep)}
+.brand .tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.nav nav{display:flex;gap:20px;margin-left:18px}
+.nav nav a{font-size:14px;color:var(--muted);font-weight:500}
+.nav nav a:hover{color:var(--ink)}
+.nav .sp{flex:1}
+.cart{font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:9px 15px;cursor:pointer}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;padding:clamp(34px,6vw,64px) 0 clamp(28px,4vw,46px)}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);font-weight:500}
+.hero h1{font-family:var(--serif);font-weight:700;font-size:clamp(34px,5.4vw,56px);line-height:1.02;margin:14px 0 0;letter-spacing:-.01em}
+.hero p{font-size:clamp(15px,1.7vw,17px);color:var(--muted);margin-top:16px;max-width:440px;line-height:1.55}
+.cta{display:inline-flex;align-items:center;gap:9px;margin-top:24px;background:var(--ink);color:#fff;font-weight:600;font-size:14.5px;border-radius:12px;padding:13px 22px}
+.cta .arw{color:var(--gold)}
+.hart{background:var(--panel);border-radius:20px;border:1px solid var(--line);display:grid;place-items:center;padding:26px;min-height:280px}
+.hart img{max-width:90%;max-height:300px;object-fit:contain}
+
+/* shop */
+.shop{padding:clamp(10px,2vw,16px) 0 clamp(40px,6vw,72px)}
+.sechead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-top:1px solid var(--line);padding-top:24px;margin-bottom:24px}
+.sechead h2{font-family:var(--serif);font-weight:600;font-size:clamp(22px,3vw,28px)}
+.sechead .meta{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr));gap:clamp(16px,2vw,22px)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:box-shadow .18s,transform .18s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-3px);box-shadow:0 18px 36px -22px rgba(20,22,26,.4)}
+.thumb{background:var(--panel);aspect-ratio:1/.82;display:grid;place-items:center;padding:20px}
+.thumb img{max-width:92%;max-height:160px;object-fit:contain}
+.info{padding:14px 15px 16px;display:flex;flex-direction:column;gap:3px;flex:1}
+.pname{font-size:14.5px;font-weight:600;letter-spacing:-.01em}
+.psub{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2,#9a9ba0)}
+.prow{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:12px}
+.price{font-weight:700;font-size:15px}
+.add{font-size:12.5px;font-weight:600;color:var(--ink);background:#fff;border:1px solid var(--ink);border-radius:9px;padding:8px 13px;cursor:pointer;transition:.15s}
+.add:hover{background:var(--ink);color:#fff}
+
+/* footer */
+footer{border-top:1px solid var(--line);background:var(--surface)}
+footer .ft{display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:26px 0;font-size:13px;color:var(--muted)}
+footer .by{font-weight:700;color:var(--ink);letter-spacing:.02em}
+footer .by b{color:var(--gold-deep)}
+footer .tag{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+footer .sp{flex:1}
+footer a{color:var(--muted)} footer a:hover{color:var(--ink)}
+
+@media (max-width:720px){ .hero{grid-template-columns:1fr} .hart{order:-1;min-height:220px} .nav nav{display:none} }
+</style>
+</head>
+<body>
+
+  <header class="nav"><div class="wrap"><div class="bar">
+    <div class="brand"><span class="logo">AIM<b>S</b></span><span class="tag">AI Managed Solutions</span></div>
+    <nav><a>Shop</a><a>Collections</a><a>About</a></nav>
+    <div class="sp"></div>
+    <button class="cart">Cart · 0</button>
+  </div></div></header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="hcopy">
+        <div class="eyebrow">AIMS Business · The Shop</div>
+        <h1>The Lowcountry,<br>by: ACHIEVEMOR.</h1>
+        <p>Original single-color die-cut stickers — Savannah, Tybee, and beyond. Designed in-house, printed to order.</p>
+        <a class="cta" href="#shop">Shop the collection <span class="arw">→</span></a>
+      </div>
+      <div class="hart"><img src="sav2_oak.png" alt="VISIT SAV — Live Oak"></div>
+    </section>
+
+    <section class="shop" id="shop">
+      <div class="sechead"><h2>VISIT SAV — Savannah Collection</h2><span class="meta">11 designs · $3 each</span></div>
+      <div class="grid" id="grid"></div>
+    </section>
+  </main>
+
+  <footer><div class="wrap"><div class="ft">
+    <span class="by">by: <b>ACHIEVEMOR</b></span>
+    <span class="tag">Empowering Innovation</span>
+    <span class="sp"></span>
+    <a>Shipping</a><a>Returns</a><a>Contact</a><a>aims.business</a>
+  </div></div></footer>
+
+<script>
+const P=[
+ ["sav2_oak.png","Live Oak & Moss","VISIT SAV"],
+ ["sav2_fountain.png","Forsyth Fountain","VISIT SAV"],
+ ["sav2_lighthouse.png","Tybee Lighthouse","VISIT SAV"],
+ ["sav2_pier.png","Tybee Pier","VISIT SAV"],
+ ["sav2_avenue.png","Wormsloe Avenue","VISIT SAV"],
+ ["sav2_ghost.png","Ghost Tour","VISIT SAV"],
+ ["sav2_house.png","Victorian House","VISIT SAV"],
+ ["sav2_riverboat.png","River St. Riverboat","VISIT SAV"],
+ ["sav2_waving.png","The Waving Girl","VISIT SAV"],
+ ["sav2_carriage.png","Horse & Carriage","VISIT SAV"],
+ ["plr.jpeg","Made in PLR","Lowcountry"],
+];
+const g=document.getElementById('grid');
+P.forEach(([img,name,sub])=>{
+ const d=document.createElement('div'); d.className='card';
+ d.innerHTML=`<div class="thumb"><img src="${img}" alt="${name}"></div>
+  <div class="info"><div class="psub">${sub}</div><div class="pname">${name}</div>
+  <div class="prow"><span class="price">$3.00</span><button class="add">Add to cart</button></div></div>`;
+ g.appendChild(d);
+});
+</script>
+</body>
+</html>
