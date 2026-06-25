@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thank you — A.I.M.S. MARKETPLACE by: ACHIEVEMOR</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf8f3;--surface:#fff;--panel:#f4f1ea;--ink:#16171b;--muted:#6b6c72;--line:#e8e4db;--gold:#F2A900;--gold-2:#ffce5e;--gold-deep:#b97f00;
+ --sans:"Geist",system-ui,sans-serif;--mono:"Geist Mono",ui-monospace,monospace;--serif:"Playfair Display",Georgia,serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;min-height:100dvh;display:grid;place-items:center;padding:30px 18px}
+.card{max-width:520px;width:100%;background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:clamp(26px,5vw,40px);text-align:center;box-shadow:0 30px 60px -34px rgba(20,22,26,.4)}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);font-weight:600}
+h1{font-family:var(--serif);font-weight:700;font-size:clamp(26px,5vw,38px);margin:10px 0 0;letter-spacing:-.01em}
+.thumb{margin:22px auto 0;background:var(--panel);border:1px solid var(--line);border-radius:16px;width:200px;height:200px;display:grid;place-items:center;padding:18px}
+.thumb img{max-width:100%;max-height:100%;object-fit:contain}
+.pname{font-size:15px;font-weight:600;margin-top:16px}
+.dl{display:inline-flex;align-items:center;gap:9px;margin-top:18px;font-weight:600;font-size:15px;color:#1a1305;background:linear-gradient(180deg,var(--gold-2),var(--gold));border-radius:13px;padding:14px 26px;box-shadow:0 16px 34px -16px rgba(242,169,0,.55)}
+.note{font-size:12.5px;color:var(--muted);margin-top:18px;line-height:1.5}
+.foot{margin-top:24px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.foot a{color:var(--gold-deep);text-decoration:none}
+.foot b{color:var(--ink)}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="eyebrow">Order complete</div>
+    <h1>Thank you.</h1>
+    <div class="thumb"><img id="img" src="" alt=""></div>
+    <div class="pname" id="pname">Your sticker</div>
+    <a class="dl" id="dl" download href="#">Download your sticker ↓</a>
+    <div class="note" id="note">Your VISIT SAV sticker is ready to download. Save the file, then print &amp; cut, or send it to a print shop.</div>
+    <div class="foot">by: <b>ACHIEVEMOR</b> · <a href="/shop.html">Back to shop</a></div>
+  </div>
+<script>
+const MAP={
+ oak:["Live Oak & Moss","sav2_oak.png"], fountain:["Forsyth Fountain","sav2_fountain.png"],
+ lighthouse:["Tybee Lighthouse","sav2_lighthouse.png"], pier:["Tybee Pier","sav2_pier.png"],
+ avenue:["Wormsloe Avenue","sav2_avenue.png"], ghost:["Ghost Tour","sav2_ghost.png"],
+ house:["Victorian House","sav2_house.png"], riverboat:["River St. Riverboat","sav2_riverboat.png"],
+ waving:["The Waving Girl","sav2_waving.png"], carriage:["Horse & Carriage","sav2_carriage.png"],
+ plr:["Made in PLR","plr.jpeg"]
+};
+const s=new URLSearchParams(location.search).get('s');
+const m=MAP[s];
+if(m){
+ document.getElementById('img').src=m[1];
+ document.getElementById('img').alt=m[0];
+ document.getElementById('pname').textContent=m[0]+" — VISIT SAV";
+ const dl=document.getElementById('dl'); dl.href=m[1]; dl.setAttribute('download', m[1]);
+}else{
+ document.querySelector('.thumb').style.display='none';
+ document.getElementById('dl').style.display='none';
+ document.getElementById('pname').textContent='';
+ document.getElementById('note').textContent='Thanks for your order. Your download link is on its way — reply to your receipt if you need a hand.';
+}
+</script>
+</body>
+</html>
