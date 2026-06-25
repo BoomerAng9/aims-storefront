@@ -75,6 +75,7 @@ a{color:inherit;text-decoration:none}
 .price{font-weight:700;font-size:15px}
 .add{display:inline-block;font-size:12.5px;font-weight:600;color:var(--ink);background:#fff;border:1px solid var(--ink);border-radius:9px;padding:8px 13px;cursor:pointer;transition:.15s}
 .add:hover{background:var(--ink);color:#fff}
+.add.soon{background:var(--panel);color:var(--muted);border-color:var(--line);cursor:default;pointer-events:none}
 
 /* footer */
 footer{border-top:1px solid var(--line);background:var(--surface)}
@@ -154,7 +155,7 @@ function render(list, elId){
   const d=document.createElement('div'); d.className='card';
   d.innerHTML=`<div class="thumb"><img src="${img}" alt="${name}"></div>
    <div class="info"><div class="psub">${sub}</div><div class="pname">${name}</div>
-   <div class="prow"><span class="price">$3.00</span><a class="add" href="${buy}" target="_blank" rel="noopener">Buy →</a></div></div>`;
+   <div class="prow"><span class="price">$3.00</span><span class="add soon" title="${buy}">Shipping soon</span></div></div>`;
   g.appendChild(d);
  });
 }
