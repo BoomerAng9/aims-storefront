@@ -113,6 +113,11 @@ footer a{color:var(--muted)} footer a:hover{color:var(--ink)}
       <div class="sechead"><h2>VISIT SAV — Savannah Collection</h2><span class="meta">11 designs · $3 each</span></div>
       <div class="grid" id="grid"></div>
     </section>
+
+    <section class="shop">
+      <div class="sechead"><h2>Savannah — Emblems</h2><span class="meta">5 crests · $3 each</span></div>
+      <div class="grid" id="grid2"></div>
+    </section>
   </main>
 
   <footer><div class="wrap"><div class="ft">
@@ -136,14 +141,24 @@ const P=[
  ["sav2_carriage.png","Horse & Carriage","VISIT SAV","https://buy.stripe.com/4gMfZgdyQ03Qarv6Td6c009"],
  ["plr.jpeg","Made in PLR","MADE IN PLR","https://buy.stripe.com/9B6fZg9iA7wi6bffpJ6c00a"],
 ];
-const g=document.getElementById('grid');
-P.forEach(([img,name,sub,buy])=>{
- const d=document.createElement('div'); d.className='card';
- d.innerHTML=`<div class="thumb"><img src="${img}" alt="${name}"></div>
-  <div class="info"><div class="psub">${sub}</div><div class="pname">${name}</div>
-  <div class="prow"><span class="price">$3.00</span><a class="add" href="${buy}" target="_blank" rel="noopener">Buy →</a></div></div>`;
- g.appendChild(d);
-});
+const P2=[
+ ["crest-oakave.png","Oak Avenue","SAVANNAH","https://buy.stripe.com/6oUcN4amEaIu437b9t6c00b"],
+ ["crest-fountain.png","Forsyth Fountain","SAVANNAH","https://buy.stripe.com/7sY28qdyQ17U0QVcdx6c00c"],
+ ["crest-liveoak.png","Live Oak","SAVANNAH","https://buy.stripe.com/fZueVc3Yg9Eq2Z32CX6c00d"],
+ ["crest-rwb.png","Oak Avenue · Red, White & Blue","SAVANNAH","https://buy.stripe.com/4gM9AS52k3g2fLPcdx6c00e"],
+ ["crest-squares.png","The Squares","SAVANNAH","https://buy.stripe.com/bJe6oGdyQ03Q9nr0uP6c00f"],
+];
+function render(list, elId){
+ const g=document.getElementById(elId);
+ list.forEach(([img,name,sub,buy])=>{
+  const d=document.createElement('div'); d.className='card';
+  d.innerHTML=`<div class="thumb"><img src="${img}" alt="${name}"></div>
+   <div class="info"><div class="psub">${sub}</div><div class="pname">${name}</div>
+   <div class="prow"><span class="price">$3.00</span><a class="add" href="${buy}" target="_blank" rel="noopener">Buy →</a></div></div>`;
+  g.appendChild(d);
+ });
+}
+render(P,'grid'); render(P2,'grid2');
 </script>
 </body>
 </html>

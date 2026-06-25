@@ -32,7 +32,7 @@ h1{font-family:var(--serif);font-weight:700;font-size:clamp(26px,5vw,38px);margi
     <div class="thumb"><img id="img" src="" alt=""></div>
     <div class="pname" id="pname">Your sticker</div>
     <a class="dl" id="dl" download href="#">Download your sticker ↓</a>
-    <div class="note" id="note">Your VISIT SAV sticker is ready to download. Save the file, then print &amp; cut, or send it to a print shop.</div>
+    <div class="note" id="note">Your sticker is ready to download. Save the file, then print &amp; cut, or send it to a print shop.</div>
     <div class="foot">by: <b>ACHIEVEMOR</b> · <a href="/shop.html">Back to shop</a></div>
   </div>
 <script>
@@ -42,14 +42,19 @@ const MAP={
  avenue:["Wormsloe Avenue","sav2_avenue.png"], ghost:["Ghost Tour","sav2_ghost.png"],
  house:["Victorian House","sav2_house.png"], riverboat:["River St. Riverboat","sav2_riverboat.png"],
  waving:["The Waving Girl","sav2_waving.png"], carriage:["Horse & Carriage","sav2_carriage.png"],
- plr:["Made in PLR","plr.jpeg"]
+ plr:["Made in PLR","plr.jpeg"],
+ "crest-oakave":["Savannah — Oak Avenue","crest-oakave.png"],
+ "crest-fountain":["Savannah — Forsyth Fountain","crest-fountain.png"],
+ "crest-liveoak":["Savannah — Live Oak","crest-liveoak.png"],
+ "crest-rwb":["Savannah — Oak Avenue (Red, White & Blue)","crest-rwb.png"],
+ "crest-squares":["Savannah — The Squares","crest-squares.png"]
 };
 const s=new URLSearchParams(location.search).get('s');
 const m=MAP[s];
 if(m){
  document.getElementById('img').src=m[1];
  document.getElementById('img').alt=m[0];
- document.getElementById('pname').textContent=m[0]+" — VISIT SAV";
+ document.getElementById('pname').textContent=m[0];
  const dl=document.getElementById('dl'); dl.href=m[1]; dl.setAttribute('download', m[1]);
 }else{
  document.querySelector('.thumb').style.display='none';
