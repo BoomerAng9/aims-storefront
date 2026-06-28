@@ -111,12 +111,12 @@ footer a{color:var(--muted)} footer a:hover{color:var(--ink)}
     </section>
 
     <section class="shop" id="shop">
-      <div class="sechead"><h2>VISIT SAV — Savannah Collection</h2><span class="meta">11 designs · $3 each</span></div>
+      <div class="sechead"><h2>VISIT SAV — Savannah Collection</h2><span class="meta">11 designs · $9 each</span></div>
       <div class="grid" id="grid"></div>
     </section>
 
     <section class="shop">
-      <div class="sechead"><h2>Savannah — Emblems</h2><span class="meta">5 crests · $3 each</span></div>
+      <div class="sechead"><h2>Savannah — Emblems</h2><span class="meta">5 crests · $9 each</span></div>
       <div class="grid" id="grid2"></div>
     </section>
   </main>
@@ -130,24 +130,24 @@ footer a{color:var(--muted)} footer a:hover{color:var(--ink)}
 
 <script>
 const P=[
- ["sav2_oak.png","Live Oak & Moss","VISIT SAV","https://buy.stripe.com/5kQ4gygL2g2O8jn2CX6c000"],
- ["sav2_fountain.png","Forsyth Fountain","VISIT SAV","https://buy.stripe.com/3cIeVc7as2bYbvz1yT6c001"],
- ["sav2_lighthouse.png","Tybee Lighthouse","VISIT SAV","https://buy.stripe.com/8x29ASamE3g2arvgtN6c002"],
- ["sav2_pier.png","Tybee Pier","VISIT SAV","https://buy.stripe.com/dRm5kCeCU7wi6bf0uP6c003"],
- ["sav2_avenue.png","Wormsloe Avenue","VISIT SAV","https://buy.stripe.com/bJe00i52kaIu8jnfpJ6c004"],
- ["sav2_ghost.png","Ghost Tour","VISIT SAV","https://buy.stripe.com/dRmcN4fGY8AmdDH2CX6c005"],
- ["sav2_house.png","Victorian House","VISIT SAV","https://buy.stripe.com/eVq7sKamE5oa4372CX6c006"],
- ["sav2_riverboat.png","River St. Riverboat","VISIT SAV","https://buy.stripe.com/9B64gy8ewcQC2Z31yT6c007"],
- ["sav2_waving.png","The Waving Girl","VISIT SAV","https://buy.stripe.com/aFacN4cuMaIuarv5P96c008"],
- ["sav2_carriage.png","Horse & Carriage","VISIT SAV","https://buy.stripe.com/4gMfZgdyQ03Qarv6Td6c009"],
- ["plr.jpeg","Made in PLR","MADE IN PLR","https://buy.stripe.com/9B6fZg9iA7wi6bffpJ6c00a"],
+ ["sav2_oak.png","Live Oak & Moss","VISIT SAV","https://buy.stripe.com/28EdR80M42bY4376Td6c00g"],
+ ["sav2_fountain.png","Forsyth Fountain","VISIT SAV","https://buy.stripe.com/aFa7sKgL25oa57b3H16c00v"],
+ ["sav2_lighthouse.png","Tybee Lighthouse","VISIT SAV","https://buy.stripe.com/eVqaEW52k6sebvz5P96c00u"],
+ ["sav2_pier.png","Tybee Pier","VISIT SAV","https://buy.stripe.com/8x214m52k7wi7fj91l6c00t"],
+ ["sav2_avenue.png","Wormsloe Avenue","VISIT SAV","https://buy.stripe.com/fZu14m0M417UeHL5P96c00s"],
+ ["sav2_ghost.png","Ghost Tour","VISIT SAV","https://buy.stripe.com/bJe9AS7as6sefLPcdx6c00r"],
+ ["sav2_house.png","Victorian House","VISIT SAV","https://buy.stripe.com/7sY28q9iA7wi57ba5p6c00q"],
+ ["sav2_riverboat.png","River St. Riverboat","VISIT SAV","https://buy.stripe.com/8x2eVc0M48AmeHLb9t6c00p"],
+ ["sav2_waving.png","The Waving Girl","VISIT SAV","https://buy.stripe.com/dRm7sK7asdUG1UZ0uP6c00o"],
+ ["sav2_carriage.png","Horse & Carriage","VISIT SAV","https://buy.stripe.com/dRm5kC1Q83g20QV0uP6c00n"],
+ ["plr.jpeg","Made in PLR","MADE IN PLR","https://buy.stripe.com/dRmaEW1Q83g20QV4L56c00m"],
 ];
 const P2=[
- ["crest-oakave.png","Oak Avenue","SAVANNAH","https://buy.stripe.com/6oUcN4amEaIu437b9t6c00b"],
- ["crest-fountain.png","Forsyth Fountain","SAVANNAH","https://buy.stripe.com/7sY28qdyQ17U0QVcdx6c00c"],
- ["crest-liveoak.png","Live Oak","SAVANNAH","https://buy.stripe.com/fZueVc3Yg9Eq2Z32CX6c00d"],
- ["crest-rwb.png","Oak Avenue · Red, White & Blue","SAVANNAH","https://buy.stripe.com/4gM9AS52k3g2fLPcdx6c00e"],
- ["crest-squares.png","The Squares","SAVANNAH","https://buy.stripe.com/bJe6oGdyQ03Q9nr0uP6c00f"],
+ ["crest-oakave.png","Oak Avenue","SAVANNAH","https://buy.stripe.com/9B6bJ066oaIufLP6Td6c00l"],
+ ["crest-fountain.png","Forsyth Fountain","SAVANNAH","https://buy.stripe.com/6oUdR8bqI7wi2Z35P96c00k"],
+ ["crest-liveoak.png","Live Oak","SAVANNAH","https://buy.stripe.com/9B6bJ0eCU3g2eHL5P96c00j"],
+ ["crest-rwb.png","Oak Avenue · Red, White & Blue","SAVANNAH","https://buy.stripe.com/dRm5kC2Uc6se7fjcdx6c00i"],
+ ["crest-squares.png","The Squares","SAVANNAH","https://buy.stripe.com/eVq00i3YgcQC57b2CX6c00h"],
 ];
 function render(list, elId){
  const g=document.getElementById(elId);
@@ -155,7 +155,7 @@ function render(list, elId){
   const d=document.createElement('div'); d.className='card';
   d.innerHTML=`<div class="thumb"><img src="${img}" alt="${name}"></div>
    <div class="info"><div class="psub">${sub}</div><div class="pname">${name}</div>
-   <div class="prow"><span class="price">$3.00</span><span class="add soon" title="${buy}">Shipping soon</span></div></div>`;
+   <div class="prow"><span class="price">$9.00</span><a class="add" href="${buy}">Buy</a></div></div>`;
   g.appendChild(d);
  });
 }
