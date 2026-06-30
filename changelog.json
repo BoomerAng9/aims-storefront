@@ -1,0 +1,230 @@
+{
+  "current": "2.11",
+  "versions": [
+    {
+      "version": "2.11",
+      "date": "June 30, 2026",
+      "title": "Circuit Box — your mission control",
+      "changes": [
+        "🎛️ New — Circuit Box: open the menu and tap Circuit Box to see everything Spinner is doing and control it all in one place — model, voice, language, dark mode, wallpaper, your agents, plan and live agent runs.",
+        "⚡ Every setting now has one home, with your live agent runs and token balance at a glance."
+      ]
+    },
+    {
+      "version": "2.10",
+      "date": "June 30, 2026",
+      "title": "Read any document",
+      "changes": [
+        "📄 New — DocIQ: tap the document button, snap a receipt, form, contract page or screenshot, and Spinner reads it, pulls out the key details, and answers your questions.",
+        "🔒 Private by design — document reading runs only on the secure premium models, never the free ones."
+      ]
+    },
+    {
+      "version": "2.9",
+      "date": "June 30, 2026",
+      "title": "Speaks your language — sooner",
+      "changes": [
+        "🌐 Spinner opens in your phone's language automatically — replies, translations and notes all come back in it.",
+        "🗣️ 24 languages to pick from in Settings, switch anytime.",
+        "⚡ Spoken replies start reading aloud after the first sentence — no waiting for the whole answer.",
+        "🔊 Smoother voice — each part is prepared while the previous one plays."
+      ]
+    },
+    {
+      "version": "2.8",
+      "date": "June 30, 2026",
+      "title": "Smoother, lighter, locked in place",
+      "changes": [
+        "📱 Rock-solid on phone — the screen is pinned in place and never slides or drifts.",
+        "☀️ Clean light look by default — switch to dark anytime with the top-right button.",
+        "⚡ Faster, private first load — fonts load straight from Spinner, nothing third-party.",
+        "✨ Polish throughout — clearer dark mode, consistent brand color, quieter notifications."
+      ]
+    },
+    {
+      "version": "2.7",
+      "date": "June 29, 2026",
+      "title": "Build anything, with the right model for the job",
+      "changes": [
+        "🛠️ Build it with Spinner — describe a website, funnel, tool, dashboard, or simple game and Spinner builds a real, working page you can preview and download.",
+        "🎯 The right model, recommended — when you build, Spinner suggests the best model for the job and explains why, so you are never guessing.",
+        "🧠 Switch models anywhere — a model picker on every fork shows what each one costs per turn; choose the brain that fits.",
+        "💬 Sharper companions — every guide now runs a purpose-built engine, grounded in what you share."
+      ]
+    },
+    {
+      "version": "2.6",
+      "date": "June 29, 2026",
+      "title": "Pick your model, and take your results with you",
+      "changes": [
+        "🧠 Choose your model — a new picker lets you pick the AI behind your chat and see how far your balance stretches on each one.",
+        "📄 Make a report — turn any conversation into a clean, printable keepsake you can save or share.",
+        "🎯 Sharper companions — every guide now runs a purpose-built brain, so answers are more expert and grounded in what you share.",
+        "⚡ Cleaner free tier — free conversations now run faster and in-house, no more cut-off replies."
+      ]
+    },
+    {
+      "version": "2.5",
+      "date": "June 28, 2026",
+      "title": "Welcome to Savannah, sharper answers, and stickers",
+      "changes": [
+        "🌳 Welcome to Savannah — a new fork that's your local guide to Savannah, Georgia: history, food, and getting around — with the real VISIT SAV stickers right there in the chat.",
+        "🎟️ Get the sticker — love a design you see in the conversation? Tap to grab the real one.",
+        "✨ Sharper premium answers — paid conversations now run on a stronger model for better, faster help.",
+        "🖼️ Cinematic fork designs — every fork has its own wallpaper, and you can change yours.",
+        "🔒 Hardened & faster — security and reliability fixes under the hood."
+      ],
+      "next": "Coming soon: pick your Spinner voice, plus new tools to understand and protect your digital identity."
+    },
+    {
+      "version": "2.4",
+      "date": "June 28, 2026",
+      "title": "Wallpapers, a real conversation, and a bigger free tier",
+      "changes": [
+        "🖼️ Real wallpapers behind every conversation — each fork now has its own cinematic backdrop, with a glassy iMessage-style chat floating over it.",
+        "💬 Spinner just talks now — ask anything and it answers naturally for that fork. The tools (Translate, Decode, Summarize and more) tuck into a tap-to-open menu — there when you want them, out of the way when you don't.",
+        "🛒 Easier Marketplace — add any free fork instantly, no email needed. Create a free account only when you want to save your conversations across sessions.",
+        "🎁 More free tokens — your free monthly allotment is now 1,000,000 tokens (subject to request limits on the free models).",
+        "✉️ Tell us anything — a new Report a bug · Request a fork button in the menu and the Marketplace.",
+        "🏠 A proper front door — Spinner opens to its home page; jump into the app whenever you're ready."
+      ],
+      "next": "Coming soon: change your chat wallpaper, pick your Spinner voice, and your own dashboard."
+    },
+    {
+      "version": "2.3",
+      "date": "June 27, 2026",
+      "title": "Privacy, security & what's free",
+      "changes": [
+        "✨ A fresh, frosted look — and a new fork: Welcome to Savannah, your local guide to the city.",
+        "🔒 We don't track you. Your conversations are yours — we don't sell your data or build a profile on you.",
+        "🛡️ Stronger security across the app — we hardened how your data and Spinner itself are protected.",
+        "📜 Privacy & terms in plain sight — exactly how your data is handled, GDPR & CCPA included. Find them in the menu.",
+        "🎁 Most of Spinner is free — translate, decode, explain and your forks, at no charge. We give you everything we can for free.",
+        "💬 Two premium powers are paid, because they cost real compute to run: multi-speaker (telling who said what) and Managed Agents (Spinner doing real tasks for you). You'll always know before you use them."
+      ],
+      "next": "Coming soon: build your own forks to share, and pick your Spinner voice."
+    },
+    {
+      "version": "2.2",
+      "date": "June 23, 2026",
+      "title": "The Glow Up",
+      "changes": [
+        "🛒 The Marketplace is open — a shelf of ready-made forks for real moments (traffic stops, doctor visits, lease signings, live translation and more). Browse, search and add the ones you want.",
+        "🪃 Your forks follow you — install or remove forks from the Marketplace and they sync to your account on every device.",
+        "🔗 Share a fork — send anyone a link and it opens in Spinner ready to use.",
+        "✨ A cleaner start — you begin with three essentials (Traffic Stop, Live Translate, Founder Mode); pick up the rest from the Marketplace anytime."
+      ],
+      "next": "Coming soon: pick your Spinner voice — and build your own forks to share in the Marketplace."
+    },
+    {
+      "version": "2.1",
+      "date": "June 22, 2026",
+      "title": "Cleaner home & clearer navigation",
+      "changes": [
+        "🚀 Spinner opens straight into your forks — no extra landing page in the way.",
+        "🏠 Tap the Spinner logo any time to come back to your home screen.",
+        "☰ A clear Menu button (top-right) for sign-in, your tokens and settings."
+      ],
+      "next": "Coming soon: pick your Spinner voice — and build your own fork for any moment."
+    },
+    {
+      "version": "1.9",
+      "date": "June 21, 2026",
+      "title": "Faster, sharper under the hood",
+      "changes": [
+        "⚡ Behind-the-scenes performance & reliability improvements across translate, decode and live voice.",
+        "🔒 Smoother, more secure checkout and support flows."
+      ],
+      "next": "Coming soon: pick your Spinner voice — and build your own fork for any moment."
+    },
+    {
+      "version": "1.8",
+      "date": "June 21, 2026",
+      "title": "Your token tracker",
+      "changes": [
+        "📊 See your tokens — your balance and allotment at a glance, and the full tracker anytime in the menu.",
+        "💡 Know what costs what — live voice and building a fork draw more tokens than text; now you can see the rates before you spend.",
+        "⚡ A sharper, more accurate usage meter."
+      ],
+      "next": "Coming soon: pick your Spinner voice — and build your own fork for any moment."
+    },
+    {
+      "version": "1.7",
+      "date": "June 21, 2026",
+      "title": "Smoother & safer live voice",
+      "changes": [
+        "🔒 Privacy hardening — your mic fully releases the moment a live session stops, every time.",
+        "⚡ Cleaner live connections — clearer messages if live voice can't start, and smoother stop-and-restart.",
+        "✨ Polish across settings and forks."
+      ],
+      "next": "Coming soon: pick your Spinner voice — and build your own fork for any moment."
+    },
+    {
+      "version": "1.6",
+      "date": "June 21, 2026",
+      "title": "Read-aloud free · live voice on tap",
+      "changes": [
+        "🔊 Read-aloud is free for everyone — tap Replay to hear any answer aloud, in your device's own voice and your language.",
+        "⚡ Smoother go-live — Spinner connects first and only asks for your mic when it's ready, so live voice starts clean (no dead-ends).",
+        "☕ Live voice starts with a coffee — one tap unlocks real-time speech; read-aloud always stays free."
+      ],
+      "next": "Coming soon: pick your Spinner voice — and build your own fork for any moment."
+    },
+    {
+      "version": "1.5",
+      "date": "June 21, 2026",
+      "title": "Open it on the web",
+      "changes": [
+        "🔎 Need a live lookup? Spinner can now open results in a new tab — tap the ↗ button, or just ask, and it opens the web for you.",
+        "🔄 Smoother updates — when there's a new version, Spinner lets you know and refreshes to the latest in one tap.",
+        "⚡ Reliability fixes under the hood."
+      ],
+      "next": "More forks on the way — and soon you'll build your own for any moment."
+    },
+    {
+      "version": "1.4",
+      "date": "June 21, 2026",
+      "title": "A sharper new look",
+      "changes": [
+        "✨ Refreshed Spinner branding — a bigger, cleaner logo and a brighter home screen.",
+        "⚡ Same realtime Spinner you know — just a little more polished."
+      ],
+      "next": "More forks on the way — and soon you'll build your own for any moment."
+    },
+    {
+      "version": "1.3",
+      "date": "June 20, 2026",
+      "title": "New forks just landed",
+      "changes": [
+        "🍴 More forks to pick from — Language Learning, Founder Mode, Time Management, Clean Groceries, Speech Practice, Choose Your Major, Find Your College, Scholarship Finder.",
+        "✨ Don't see your moment? Build your own fork — describe it and Spinner sets it up.",
+        "⚡ Smoother fork switching."
+      ],
+      "next": "Keep talking — every fork runs on the same realtime Spinner, tuned for your moment. More on the way."
+    },
+    {
+      "version": "1.2",
+      "date": "June 20, 2026",
+      "title": "Hear it again — voice replay",
+      "changes": [
+        "🔊 Replay any answer aloud — tap Replay on a response and Spinner reads it back in your device's own voice. Free, hands-free, in your language.",
+        "⚡ Smoother, faster real-time across every fork.",
+        "🧹 Cleaner upgrade flow and reliability fixes under the hood."
+      ],
+      "next": "More forks are on the way — and soon you'll build your own for any moment. Keep talking; Spinner keeps getting sharper."
+    },
+    {
+      "version": "1.1",
+      "date": "June 20, 2026",
+      "title": "Spinner just leveled up",
+      "changes": [
+        "⚡ Faster, sharper real-time responses across all six lenses",
+        "🧠 Memory — Spinner now carries your context across sessions",
+        "🎙️ Smoother, more natural real-time voice",
+        "💳 Plans & token boosts are rolling out — start with a coffee, then Tier 1 / 2 / 3",
+        "🔒 Stronger security & privacy under the hood"
+      ],
+      "next": "Keep creating — your free tokens refresh every month. When you want more, a quick \"Buy Me a Coffee\" unlocks the next level. We ship fast, so check back here each visit to see what's new."
+    }
+  ]
+}

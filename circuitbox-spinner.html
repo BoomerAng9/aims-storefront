@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Circuit Box · Spinner</title>
+<link rel="icon" type="image/png" href="/circuitbox-logo.png">
+<link rel="apple-touch-icon" href="/circuitbox-logo.png">
+<meta name="description" content="Your Spinner mission control — see your agents, monitor your runs, and pick your models in one place.">
+<!-- self-hosted AgenticUI fonts (Chakra Petch / Geist / Geist Mono) — CSP-safe, zero cross-site deps -->
+<link rel="stylesheet" href="/fonts/fonts.css">
+<style>
+/* Spinner Circuit Box — your mission control. AgenticUI light language; customer surface, no internals. */
+:root{--bg:#eeebe3;--surface:#fff;--raised:#fbfaf7;--ink:#1a1b1f;--muted:#6c6d75;--amber:#F2A900;
+  --line:rgba(0,0,0,.08);--hair:rgba(0,0,0,.06);
+  --ok:#1f9d57;--ok-bg:rgba(31,157,87,.10);--warn:#e0821b;--bad:#ce3a2b;--pending:#9aa0a6;
+  --disp:"Chakra Petch",system-ui,sans-serif;--sans:"Geist",system-ui,sans-serif;--mono:"Geist Mono",ui-monospace,monospace;}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;font-size:14px}
+.mono{font-family:var(--mono)}.wrap{max-width:1320px;margin:0 auto;padding:16px 22px 64px}
+a{color:inherit}
+/* header */
+header.top{display:flex;align-items:center;gap:13px;margin:4px 0 16px;flex-wrap:wrap}
+.logo{width:40px;height:40px;border-radius:11px;background:linear-gradient(135deg,#1a1b1f,#33343c);display:grid;place-items:center;color:var(--amber);font:700 18px var(--disp);position:relative}
+.logo::after{content:"";position:absolute;left:9px;right:9px;bottom:8px;height:4px;border-radius:3px;background:var(--amber);box-shadow:0 0 9px rgba(242,169,0,.6)}
+.brandlogo{width:50px;height:50px;border-radius:50%;object-fit:cover;display:block;flex:none;box-shadow:0 3px 14px -5px rgba(0,0,0,.5),0 0 0 1px var(--hair)}
+h1{font:600 20px/1.05 var(--disp);margin:0;letter-spacing:-.01em}
+h1 .cb{color:var(--muted);font-weight:500;font-size:11.5px;letter-spacing:.07em;display:block;margin-top:2px;text-transform:uppercase}
+.gw{margin-left:auto;display:flex;align-items:center;gap:9px}
+.who{display:flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:6px 12px}
+.who .av{width:24px;height:24px;border-radius:50%;background:var(--raised);border:1px solid var(--hair);display:grid;place-items:center;font-size:13px}
+.who .wl{font:600 12px var(--sans)}.who .ws{font:500 10px var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.btn{font:600 12.5px var(--sans);padding:8px 13px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);text-decoration:none;display:inline-block;cursor:pointer;white-space:nowrap}
+.btn.amber{background:var(--ink);color:#fff;border-color:var(--ink)}
+/* strip */
+.strip{display:grid;grid-template-columns:repeat(5,1fr);gap:11px;margin-bottom:16px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:11px 13px;box-shadow:0 1px 0 rgba(255,255,255,.6) inset,0 6px 22px -16px rgba(0,0,0,.22)}
+.stat .k{font:700 9.5px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.stat .v{font:700 21px var(--disp);margin-top:4px}.stat .v small{font:600 10.5px var(--sans);color:var(--muted)}
+/* cards */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 1px 0 rgba(255,255,255,.6) inset,0 8px 26px -18px rgba(0,0,0,.22)}
+.card h2{font:600 13.5px var(--disp);margin:0;padding:12px 16px 10px;display:flex;align-items:center;gap:9px;border-bottom:1px solid var(--hair)}
+.card h2 .g{width:23px;height:23px;border-radius:7px;display:grid;place-items:center;font-size:12px;background:color-mix(in srgb,var(--amber) 16%,#fff)}
+.card h2 .ct{margin-left:auto;font:600 10.5px var(--mono);color:var(--muted)}
+.card h2 .live{margin-left:auto;font:700 9px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ok);background:var(--ok-bg);padding:3px 8px;border-radius:999px}
+.card h2 .soon{margin-left:auto;font:700 9px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--pending);background:rgba(154,160,166,.13);padding:3px 8px;border-radius:999px}
+.body{padding:13px 16px}
+.pill{font:700 9.5px var(--mono);letter-spacing:.04em;padding:3px 8px;border-radius:999px;text-transform:uppercase}
+.pill.ok{color:var(--ok);background:var(--ok-bg)}.pill.bad{color:var(--bad);background:rgba(206,58,43,.1)}
+.pill.amber{color:#8a5a00;background:color-mix(in srgb,var(--amber) 16%,#fff)}.pill.pend{color:var(--pending);background:rgba(154,160,166,.13)}
+/* switches (display) */
+.sw{width:42px;height:24px;border-radius:999px;background:var(--ok);position:relative;border:none;padding:0;flex:none}
+.sw::after{content:"";position:absolute;top:3px;left:21px;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3)}
+.sw.sm{width:34px;height:20px}.sw.sm::after{width:15px;height:15px;top:2.5px;left:16px}
+.sw.off{background:#d9d6cd}.sw.off::after{left:3px}
+.sw.lock{background:#e4e1d8;cursor:not-allowed}.sw.lock::after{left:3px;background:#f3f1ea}
+/* layout */
+.grid{display:grid;grid-template-columns:1.5fr 1fr;gap:16px;align-items:start}
+.col{display:flex;flex-direction:column;gap:16px;min-width:0}
+.card,.body{min-width:0}.empty .es,.note,.it .m .t,.it .m .s,.lane .mn{overflow-wrap:anywhere}
+/* list items */
+.it{display:flex;align-items:center;gap:11px;padding:10px 0;border-top:1px solid var(--hair)}.it:first-child{border-top:none}
+.it .ic{width:34px;height:34px;border-radius:10px;background:var(--raised);border:1px solid var(--hair);display:grid;place-items:center;font-size:16px;flex:none}
+.it .m{flex:1;min-width:0}.it .m .t{font:600 13px var(--sans);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.it .m .s{font:500 11px var(--mono);color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
+/* models */
+.lane{display:flex;align-items:center;gap:10px;padding:10px 0;border-top:1px solid var(--hair)}.lane:first-child{border-top:none}
+.lane .mn{font:600 13px var(--sans);flex:1}.lane .mn small{font:500 11px var(--mono);color:var(--muted)}
+.band{font:700 9px var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:3px 8px;border-radius:999px;background:var(--raised);border:1px solid var(--hair);color:var(--muted)}
+.band.everyday{color:#1f7a52;background:rgba(31,157,87,.08)}.band.premium{color:#8a5a00;background:color-mix(in srgb,var(--amber) 14%,#fff)}
+.band.flagship{color:#6b4bcf;background:rgba(123,97,255,.08)}.band.ultra{color:#b03a2b;background:rgba(206,58,43,.07)}
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:600;padding:7px 10px;border:1px solid var(--line);border-radius:10px;background:var(--raised);color:var(--muted)}
+.chip .d{width:8px;height:8px;border-radius:50%;background:var(--pending)}
+/* empty + skeleton */
+.empty{padding:24px 14px;text-align:center;color:var(--muted)}
+.empty .ei{font-size:28px;opacity:.5}.empty .et{font:600 13.5px var(--sans);margin-top:9px;color:var(--ink)}
+.empty .es{font-size:12px;margin-top:3px;line-height:1.5}
+.empty .eb{margin-top:13px}
+.skel{height:42px;border-radius:10px;background:linear-gradient(90deg,#efeee9,#f7f6f2,#efeee9);background-size:200% 100%;animation:sk 1.3s infinite;margin:8px 0}
+@keyframes sk{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.note{color:var(--muted);font-size:11px;margin-top:11px;line-height:1.5}.note a{color:#8a5a00;font-weight:600}
+.foot{margin-top:20px;color:var(--muted);font-size:11px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}.foot b{color:var(--ink)}
+@media(max-width:1000px){.grid{grid-template-columns:1fr}.strip{grid-template-columns:repeat(2,1fr)}}
+</style></head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <img class="brandlogo" src="/circuitbox-logo.png" alt="Circuit Box — Mission Control">
+    <div><h1>Circuit Box<span class="cb">Spinner · Mission Control</span></h1></div>
+    <div class="gw">
+      <div class="who" id="who"><span class="av">👤</span><div><div class="wl" id="whoName">Guest</div><div class="ws" id="whoSub">not signed in</div></div></div>
+      <a class="btn" href="/#settings">Settings</a>
+      <a class="btn amber" href="/">Open Spinner</a>
+    </div>
+  </header>
+
+  <div class="strip">
+    <div class="stat"><div class="k">Your agents</div><div class="v" id="sAgents">—</div></div>
+    <div class="stat"><div class="k">Active runs</div><div class="v" id="sActive">—</div></div>
+    <div class="stat"><div class="k">Total runs</div><div class="v" id="sRuns">—</div></div>
+    <div class="stat"><div class="k">Models</div><div class="v" id="sModels">—</div></div>
+    <div class="stat"><div class="k">Credits</div><div class="v" id="sCredits">—</div></div>
+  </div>
+
+  <div class="grid">
+    <div class="col">
+      <!-- MANAGED AGENTS — the live monitor (the part you can see + manage) -->
+      <div class="card">
+        <h2><span class="g">◇</span> Agent runs <span class="live" id="runsBadge">live</span></h2>
+        <div class="body" id="runsBody">
+          <div class="skel"></div><div class="skel"></div>
+        </div>
+      </div>
+
+      <!-- YOUR AGENTS (forks) -->
+      <div class="card">
+        <h2><span class="g">✦</span> Your agents <span class="ct" id="forksCount"></span></h2>
+        <div class="body" id="forksBody">
+          <div class="skel"></div><div class="skel"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <!-- MODELS — reflects the in-app model picker -->
+      <div class="card">
+        <h2><span class="g">▤</span> Models <span class="ct" id="modelsCount"></span></h2>
+        <div class="body" id="modelsBody">
+          <div class="skel"></div><div class="skel"></div>
+        </div>
+      </div>
+
+      <!-- PREMIUM AGENTS — coming soon (locked, owner-activated) -->
+      <div class="card">
+        <h2><span class="g">★</span> Premium agents <span class="soon">soon</span></h2>
+        <div class="body" id="premiumBody"></div>
+      </div>
+
+      <!-- INTEGRATIONS -->
+      <div class="card">
+        <h2><span class="g">⚙</span> Integrations <span class="soon">soon</span></h2>
+        <div class="body">
+          <div class="empty" style="padding:16px 6px">
+            <div class="ei">🔌</div>
+            <div class="et">Connect your own tools</div>
+            <div class="es">Bring-your-own integrations are arriving soon — you'll be able to plug your services into your agents right here.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SETTINGS -->
+      <div class="card">
+        <h2><span class="g">⚙</span> Settings</h2>
+        <div class="body">
+          <div class="it"><span class="ic">🎙️</span><div class="m"><div class="t">Voice &amp; language</div><div class="s">listening · speak responses · 24 languages</div></div><a class="btn" href="/#settings">Open</a></div>
+          <div class="it"><span class="ic">🖼️</span><div class="m"><div class="t">Wallpaper &amp; look</div><div class="s">change · presets · upload</div></div><a class="btn" href="/#wallpaper">Open</a></div>
+          <div class="it"><span class="ic">💳</span><div class="m"><div class="t">Plan &amp; billing</div><div class="s" id="planLine">manage your plan</div></div><a class="btn" href="/#billing">Open</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span>Circuit Box · your Spinner control surface</span>
+    <span><b id="footState">live</b> · your agents, your runs, your models — in one place</span>
+  </div>
+</div>
+
+<script>
+// ── Customer mission control: every panel reads the caller's OWN data (cookie-scoped), or shows an
+//    empty/onboarding state. No internal endpoints, no operator surfaces. Fail-soft to empty states. ──
+var APP_BUILD='cb-spinner-1.0';
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function gj(u){return fetch(u,{credentials:'include',headers:{accept:'application/json'}}).then(function(r){return r.ok?r.json():null;}).catch(function(){return null;});}
+function emptyCard(icon,title,sub,btn){
+  return '<div class="empty"><div class="ei">'+icon+'</div><div class="et">'+title+'</div><div class="es">'+sub+'</div>'+(btn||'')+'</div>';
+}
+function statusPill(s){
+  s=String(s||'').toLowerCase();
+  if(s==='running'||s==='active') return '<span class="pill amber">running</span>';
+  if(s==='queued'||s==='pending'||s==='waiting') return '<span class="pill pend">queued</span>';
+  if(s==='failed'||s==='error'||s==='cancelled'||s==='canceled') return '<span class="pill bad">'+esc(s)+'</span>';
+  if(s==='done'||s==='succeeded'||s==='success'||s==='complete'||s==='completed'||s==='closed') return '<span class="pill ok">done</span>';
+  return '<span class="pill pend">'+esc(s||'—')+'</span>';
+}
+function ago(iso){
+  if(!iso) return '';
+  try{var t=new Date(iso).getTime(),d=(Date.now()-t)/1000;
+    if(d<60) return 'just now'; if(d<3600) return Math.floor(d/60)+'m ago';
+    if(d<86400) return Math.floor(d/3600)+'h ago'; return Math.floor(d/86400)+'d ago';}catch(e){return '';}
+}
+
+// 1) IDENTITY — header (drives whether usage/credits show real numbers)
+var SIGNED_IN=false;
+gj('/api/v1/auth/me').then(function(d){
+  var u=d&&(d.user||d.account||d);
+  var name=u&&(u.name||u.display_name||u.email||u.handle);
+  if(!(d&&d.authenticated===false)&&name){
+    SIGNED_IN=true;
+    $('whoName').textContent=name; $('whoSub').textContent='signed in';
+    $('who').querySelector('.av').textContent=(String(name)[0]||'·').toUpperCase();
+  }
+  loadUsage();
+});
+
+// 2) AGENT RUNS — the live monitor (GET /agents/jobs, caller-scoped)
+gj('/api/v1/agents/jobs').then(function(d){
+  var jobs=(d&&d.jobs)||[];
+  $('sRuns').textContent=jobs.length||0;
+  $('sActive').innerHTML=(d&&d.active_count||0)+(d&&d.active_count?' <small>running</small>':'');
+  if(!jobs.length){
+    $('runsBadge').outerHTML='<span class="ct">nothing running</span>';
+    $('runsBody').innerHTML=emptyCard('◇','No runs yet','Describe something in Spinner and it will build it for you — every run shows up here so you can watch it, resume it, and see what it cost.',
+      '<a class="btn amber eb" href="/">Start a build</a>');
+    return;
+  }
+  var h='';
+  jobs.slice(0,12).forEach(function(j){
+    var label=esc(j.input_summary||j.task_type||'Agent run');
+    var kind=esc((j.task_type||'run').replace(/_/g,' '));
+    h+='<div class="it"><span class="ic">'+(j.status==='running'?'⚙️':j.status==='failed'?'⚠️':'◇')+'</span>'
+      +'<div class="m"><div class="t">'+label+'</div><div class="s">'+kind+(j.updated_at?' · '+ago(j.updated_at):'')+'</div></div>'
+      +statusPill(j.status)
+      +'<a class="btn" style="padding:5px 10px;font-size:11.5px;flex:none" href="/?job='+encodeURIComponent(j.job_id)+'" title="open this run in Spinner">Open</a></div>';
+  });
+  $('runsBody').innerHTML=h;
+});
+
+// 3) YOUR AGENTS (forks) — GET /companion/forks/mine
+gj('/api/v1/companion/forks/mine').then(function(d){
+  var forks=(d&&(d.forks||d.mine||d.items))||(Array.isArray(d)?d:[]);
+  $('sAgents').textContent=forks.length||0;
+  $('forksCount').textContent=forks.length?forks.length+' installed':'';
+  if(!forks.length){
+    $('forksBody').innerHTML=emptyCard('✦','No agents yet','Create your first fork — a Spinner agent tuned to exactly what you need — and it lands here.',
+      '<a class="btn amber eb" href="/">Create an agent</a>');
+    return;
+  }
+  var h='';
+  forks.slice(0,14).forEach(function(f){
+    var nm=esc(f.name||f.title||f.slug||'Agent');
+    var ic=esc(f.icon||f.emoji||'⚡');
+    var sub=esc(f.tagline||f.description||f.lens||'your agent');
+    h+='<div class="it"><span class="ic">'+(ic.length<=3?ic:'⚡')+'</span>'
+      +'<div class="m"><div class="t">'+nm+'</div><div class="s">'+sub+'</div></div>'
+      +'<button class="sw sm" title="active"></button></div>';
+  });
+  $('forksBody').innerHTML=h;
+});
+
+// 4) MODELS — tier SUMMARY only. A customer mission-control never enumerates the underlying model
+//    stack (that's a stack-leak + makes a paid product look like it runs tiny models). Counts by speed
+//    tier; the actual per-agent pick lives in the in-app picker.
+var BAND_LABEL={everyday:'Everyday',premium:'Premium',flagship:'Flagship',ultra:'Ultra'};
+var BAND_KEY={economy:'everyday',standard:'premium',frontier:'flagship',super:'ultra'};
+gj('/api/v1/companion/models').then(function(d){
+  var models=(d&&d.models)||[];
+  $('sModels').textContent=models.length||'—';
+  $('modelsCount').textContent=models.length?models.length+' available':'';
+  if(!models.length){
+    $('modelsBody').innerHTML=emptyCard('▤','Models load in the app','Open Spinner to choose the model for each of your agents.',
+      '<a class="btn eb" href="/">Open picker</a>');
+    return;
+  }
+  var counts={};
+  models.forEach(function(m){var k=BAND_KEY[m.band];if(k)counts[k]=(counts[k]||0)+1;});
+  var h='<div class="lane"><span class="mn">Your model <small>· set per agent</small></span><span class="band everyday">Auto</span></div>';
+  ['everyday','premium','flagship','ultra'].forEach(function(k){
+    if(!counts[k])return;
+    h+='<div class="lane"><span class="mn">'+BAND_LABEL[k]+' tier</span><span class="band '+k+'">'+counts[k]+(counts[k]===1?' model':' models')+'</span></div>';
+  });
+  h+='<div class="note"><b>'+models.length+' models</b> across speed tiers — Spinner picks a great default automatically, or choose one per agent in the app. <a href="/">Open model picker →</a></div>';
+  $('modelsBody').innerHTML=h;
+});
+
+// 5) USAGE / CREDITS — GET /billing/usage (only meaningful once signed in; hoisted, called from identity)
+function loadUsage(){
+  gj('/api/v1/billing/usage').then(function(d){
+    if(!d||!SIGNED_IN){$('sCredits').innerHTML='<small>sign in</small>';return;}
+    var c=d.credits!=null?d.credits:(d.balance!=null?d.balance:(d.remaining!=null?d.remaining:(d.tokens_remaining!=null?d.tokens_remaining:null)));
+    $('sCredits').textContent=(c!=null?Number(c).toLocaleString():'—');
+    var plan=d.plan||d.tier||d.plan_name;
+    if(plan) $('planLine').textContent=esc(String(plan))+' plan';
+  });
+}
+
+// 6) PREMIUM AGENTS — owner-activated visibility flag (default 'soon'; flip status:'live' to enable, no rebuild).
+//    Locked cards carry NAME + blurb only — never model, sessions, or telemetry.
+var PREMIUM=[
+  {name:'Charlotte', glyph:'💠', blurb:'Orchestrator — routes your request and builds across your tools', status:'soon'},
+  {name:'ACHEEVY',  glyph:'🤖', blurb:'Your AI executive — takes a goal and runs the mission end to end', status:'soon'}
+];
+(function(){
+  var h='';
+  PREMIUM.filter(function(p){return p.status!=='hidden';}).forEach(function(p){
+    var live=p.status==='live';
+    h+='<div class="it"><span class="ic">'+p.glyph+'</span>'
+      +'<div class="m"><div class="t">'+esc(p.name)+'</div><div class="s">'+esc(p.blurb)+'</div></div>'
+      +(live?'<button class="sw sm off" title="enable"></button>':'<span class="pill pend">coming soon</span><button class="sw sm lock" title="locked" disabled></button>')+'</div>';
+  });
+  $('premiumBody').innerHTML=h||emptyCard('★','Premium agents arriving soon','','');
+})();
+</script>
+</body></html>
