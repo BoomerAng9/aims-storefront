@@ -18,7 +18,7 @@ h1{font-family:var(--serif);font-weight:700;font-size:clamp(26px,5vw,38px);margi
 .thumb{margin:22px auto 0;background:var(--panel);border:1px solid var(--line);border-radius:16px;width:200px;height:200px;display:grid;place-items:center;padding:18px}
 .thumb img{max-width:100%;max-height:100%;object-fit:contain}
 .pname{font-size:15px;font-weight:600;margin-top:16px}
-.dl{display:inline-flex;align-items:center;gap:9px;margin-top:18px;font-weight:600;font-size:15px;color:#1a1305;background:linear-gradient(180deg,var(--gold-2),var(--gold));border-radius:13px;padding:14px 26px;box-shadow:0 16px 34px -16px rgba(242,169,0,.55)}
+.downloads{display:grid;gap:10px;margin-top:18px}.dl{display:flex;align-items:center;justify-content:center;gap:9px;font-weight:600;font-size:15px;color:#1a1305;background:linear-gradient(180deg,var(--gold-2),var(--gold));border-radius:13px;padding:14px 26px;box-shadow:0 16px 34px -16px rgba(242,169,0,.55);text-decoration:none}
 .note{font-size:12.5px;color:var(--muted);margin-top:18px;line-height:1.5}
 .foot{margin-top:24px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .foot a{color:var(--gold-deep);text-decoration:none}
@@ -31,7 +31,7 @@ h1{font-family:var(--serif);font-weight:700;font-size:clamp(26px,5vw,38px);margi
     <h1>Thank you.</h1>
     <div class="thumb"><img id="img" src="" alt=""></div>
     <div class="pname" id="pname">Your sticker</div>
-    <a class="dl" id="dl" download href="#">Download your sticker ↓</a>
+    <div class="downloads" id="downloads"><a class="dl" id="dl" download href="#">Download your sticker ↓</a></div>
     <div class="note" id="note">Your sticker is ready to download. Save the file, then print &amp; cut, or send it to a print shop.</div>
     <div class="foot">by: <b>ACHIEVEMOR</b> · <a href="/shop.html">Back to shop</a></div>
   </div>
@@ -50,15 +50,28 @@ const MAP={
  "crest-squares":["Savannah — The Squares","crest-squares.png"]
 };
 const s=new URLSearchParams(location.search).get('s');
+const bundle=new URLSearchParams(location.search).get('bundle');
 const m=MAP[s];
-if(m){
+const BUNDLES={
+ 'na-7f4c9e2a':{name:'Needs Analysis Quick Guide',files:[['Needs Analysis Quick Guide','downloads/aims-needs-analysis-7f4c9e2a.pdf']]},
+ 'gtme-19d6a4b8':{name:'GTME Overview',files:[['GTME Overview','downloads/aims-gtme-overview-19d6a4b8.pdf']]},
+ 'starter-58b3e1d7':{name:'Two-Guide Starter Set',files:[['Needs Analysis Quick Guide','downloads/aims-needs-analysis-7f4c9e2a.pdf'],['GTME Overview','downloads/aims-gtme-overview-19d6a4b8.pdf']]},
+ 'library-c42a8f65':{name:'A.I.M.S. Business Essentials Library',files:[['Needs Analysis Quick Guide','downloads/aims-needs-analysis-7f4c9e2a.pdf'],['GTME Overview','downloads/aims-gtme-overview-19d6a4b8.pdf'],['Review Response Quick Guide','downloads/aims-review-response-6a82fdc1.pdf'],['Lead Follow-Up Quick Guide','downloads/aims-lead-follow-up-b70e1934.pdf']]}
+};
+if(bundle && BUNDLES[bundle]){
+ const order=BUNDLES[bundle];
+ document.querySelector('.thumb').style.display='none';
+ document.getElementById('pname').textContent=order.name;
+ document.getElementById('note').textContent='Your files are ready. Save each PDF to your device. Your purchase is licensed for your own business or professional use.';
+ document.getElementById('downloads').innerHTML=order.files.map(([label,file])=>`<a class="dl" download href="${file}">Download ${label} ↓</a>`).join('');
+}else if(m){
  document.getElementById('img').src=m[1];
  document.getElementById('img').alt=m[0];
  document.getElementById('pname').textContent=m[0];
  const dl=document.getElementById('dl'); dl.href=m[1]; dl.setAttribute('download', m[1]);
 }else{
  document.querySelector('.thumb').style.display='none';
- document.getElementById('dl').style.display='none';
+ document.getElementById('downloads').style.display='none';
  document.getElementById('pname').textContent='';
  document.getElementById('note').textContent='Thanks for your order. Your download link is on its way — reply to your receipt if you need a hand.';
 }
